@@ -1,14 +1,13 @@
-export const metadata = {
-  title: "Papelería",
-  description: "Servicios de papelería",
-};
+import { ReactNode } from "react";
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
     <html lang="es">
-      <body>
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
-}
+}}

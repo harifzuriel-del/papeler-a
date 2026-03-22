@@ -17,140 +17,135 @@ export default function Page() {
   }, []);
 
   return (
-    <div style={{
-      fontFamily: "Arial",
-      background: "linear-gradient(135deg, #eef2ff, #e0f7ec)",
-      minHeight: "100vh",
-      padding: "20px"
-    }}>
-
-      <div style={{
-        maxWidth: "520px",
-        margin: "0 auto",
-        background: "white",
-        borderRadius: "20px",
-        padding: "25px",
-        boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
-        animation: "fadeIn 1s ease"
-      }}>
-
-        {/* TITULO */}
+    <div
+      style={{
+        fontFamily: "Arial",
+        padding: "10px",
+        background: "#f3f4f6",
+        minHeight: "100vh",
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "900px",
+          background: "#ffffff",
+          padding: "20px",
+          borderRadius: "15px",
+          boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
+        }}
+      >
         <h1 style={{ textAlign: "center" }}>
           paper🖤maker 📚
         </h1>
 
-        <p style={{
-          textAlign: "center",
-          color: "#555",
-          marginBottom: "10px"
-        }}>
+        <p style={{ textAlign: "center", color: "#555" }}>
           Impresiones rápidas ⚡ | Copias | Útiles escolares
         </p>
 
-        {/* CONTADOR */}
-        <p style={{
-          textAlign: "center",
-          fontSize: "13px",
-          color: "red",
-          marginBottom: "10px"
-        }}>
+        <p style={{ textAlign: "center", fontSize: "13px", color: "red" }}>
           🔥 {visitors} personas viendo esta página ahora
         </p>
 
-        {/* IMAGEN */}
-        <img 
+        <img
           src="/papeleria.jpg"
           style={{
             width: "100%",
+            maxHeight: "400px",
+            objectFit: "cover",
             borderRadius: "15px",
-            marginBottom: "15px"
+            marginBottom: "15px",
           }}
         />
 
-        {/* OFERTA */}
-        <div style={{
-          background: "#dcfce7",
-          padding: "12px",
-          borderRadius: "12px",
-          textAlign: "center",
-          marginBottom: "15px",
-          fontWeight: "bold"
-        }}>
+        <div
+          style={{
+            background: "#dcfce7",
+            padding: "12px",
+            borderRadius: "12px",
+            textAlign: "center",
+            marginBottom: "15px",
+            fontWeight: "bold",
+          }}
+        >
           🎉 10% de descuento hoy
         </div>
 
-        {/* RESEÑAS */}
-        <div style={{
-          background: "#fff7ed",
-          padding: "15px",
-          borderRadius: "12px",
-          marginBottom: "15px",
-          fontSize: "14px"
-        }}>
-          ⭐⭐⭐⭐⭐ “Muy rápido”<br/>
-          ⭐⭐⭐⭐⭐ “Excelente servicio”<br/>
+        <div
+          style={{
+            background: "#fff7ed",
+            padding: "15px",
+            borderRadius: "12px",
+            marginBottom: "15px",
+          }}
+        >
+          ⭐⭐⭐⭐⭐ “Muy rápido” <br />
+          ⭐⭐⭐⭐⭐ “Excelente servicio” <br />
           ⭐⭐⭐⭐⭐ “Recomendado”
         </div>
 
-        {/* SERVICIOS */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "10px",
-          marginBottom: "20px"
-        }}>
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: "10px",
+            marginBottom: "20px",
+          }}
+        >
           {["📄 Impresiones", "📚 Copias", "✏️ Útiles", "📎 Engargolados"].map((item, i) => (
-            <div key={i} style={{
-              background: "#f9fafb",
-              padding: "10px",
-              borderRadius: "10px",
-              textAlign: "center",
-              fontSize: "14px"
-            }}>
+            <div
+              key={i}
+              style={{
+                background: "#f9fafb",
+                padding: "10px",
+                borderRadius: "10px",
+                textAlign: "center",
+              }}
+            >
               {item}
             </div>
           ))}
         </div>
 
-        {/* BOTON */}
         <a
           href="https://wa.me/5215641110978?text=Hola%20quiero%20información"
           target="_blank"
         >
-          <button style={{
-            width: "100%",
-            background: "linear-gradient(135deg, #25D366, #1ebe5d)",
-            color: "white",
-            padding: "15px",
-            borderRadius: "12px",
-            border: "none",
-            fontSize: "16px",
-            marginBottom: "10px",
-            cursor: "pointer",
-            transition: "0.3s"
-          }}>
+          <button
+            style={{
+              background: "#25D366",
+              color: "white",
+              padding: "12px",
+              borderRadius: "10px",
+              border: "none",
+              width: "100%",
+              marginBottom: "10px",
+              cursor: "pointer",
+            }}
+          >
             📲 Pedir por WhatsApp
           </button>
         </a>
 
-        {/* LLAMADA */}
         <a href="tel:+5215641110978">
-          <button style={{
-            width: "100%",
-            background: "#2563eb",
-            color: "white",
-            padding: "12px",
-            borderRadius: "10px",
-            border: "none",
-            fontSize: "14px"
-          }}>
+          <button
+            style={{
+              width: "100%",
+              background: "#2563eb",
+              color: "white",
+              padding: "12px",
+              borderRadius: "10px",
+              border: "none",
+              cursor: "pointer",
+            }}
+          >
             📞 Llamar ahora
           </button>
         </a>
-
       </div>
 
-      {/* BOTON FLOTANTE */}
       {showBar && (
         <a
           href="https://wa.me/5215641110978?text=Hola%20quiero%20información"
@@ -165,23 +160,11 @@ export default function Page() {
             padding: "15px 25px",
             borderRadius: "50px",
             fontWeight: "bold",
-            boxShadow: "0 4px 15px rgba(0,0,0,0.3)"
           }}
         >
           💬 Escríbenos ahora
         </a>
       )}
-
-      {/* ANIMACION */}
-      <style>
-        {`
-          @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-        `}
-      </style>
-
     </div>
   );
 }
