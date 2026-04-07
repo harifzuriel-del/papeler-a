@@ -13,19 +13,12 @@ export default function Uploader({ onUpload }: any) {
     const formData = new FormData();
     formData.append("file", file);
 
-    try {
-      const res = await fetch("http://localhost:4000/upload", {
-        method: "POST",
-        body: formData,
-      });
+   try {
+  // 🔥 MODO DEMO (para que funcione en Vercel)
+  onUpload(file.name);
 
-      const data = await res.json();
-
-      // 🔥 manda el nombre al padre
-      onUpload(data.file.originalname);
-
-      alert("Archivo subido correctamente 🚀");
-    } catch (error) {
+  alert("Archivo listo (modo demo) 🚀");
+} catch (error) {
       console.error(error);
       alert("Error al subir archivo");
     }
