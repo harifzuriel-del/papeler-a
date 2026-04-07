@@ -1,0 +1,16 @@
+datasource db {
+  provider = "sqlite"
+  // url ❌ NO poner url aquí
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Upload {
+  id        String   @id @default(cuid())
+  filename  String
+  key       String
+  url       String
+  createdAt DateTime @default(now())
+}
