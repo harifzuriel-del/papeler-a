@@ -1,4 +1,4 @@
-"use client";
+
 
 import { useState } from "react";
 import { MessageCircle, Phone, FileText, Copy, Printer, Scissors, PenTool, Sticker, UploadCloud, Image, BookOpen, Facebook, Instagram, Twitter } from "lucide-react";
