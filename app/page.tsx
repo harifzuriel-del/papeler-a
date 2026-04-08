@@ -1,4 +1,4 @@
-
+"use client";
 
 import { useState } from "react";
 import { MessageCircle, Phone, FileText, Copy, Printer, Scissors, PenTool, Sticker, UploadCloud, Image, BookOpen, Facebook, Instagram, Twitter } from "lucide-react";
@@ -176,18 +176,14 @@ export default function Page() {
           </a>
         </div>
 {/* UBICACIÓN DE GOOGLE MAPS */}
-<div
-  className="mt-16 text-center bg-white/5 border border-white/10 p-6 rounded-3xl"
-  id="ubicacion"
->
+<div className="mt-16 text-center bg-white/5 border border-white/10 p-6 rounded-3xl" id="ubicacion">
   <h2 className="text-xl font-bold mb-4">📍 Nuestra Ubicación</h2>
   <p className="text-gray-400 mb-4">
     Ven a visitarnos o recoge tu pedido en nuestra oficina.
   </p>
-
-  <div className="w-full aspect-video md:aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 mb-4">
+  <div className="w-full aspect-video md:aspect-[16/9] rounded-3xl overflow-hidden border border-white/10">
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d7515.013549025804!2d-99.09001923748058!3d19.64837339768598!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1775616737153!5m2!1sen!2sus"
+      src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d15030.027135298405!2d-99.09001900000001!3d19.648373!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1775618028003!5m2!1sen!2sus"
       width="100%"
       height="100%"
       style={{ border: 0 }}
@@ -196,7 +192,7 @@ export default function Page() {
       referrerPolicy="no-referrer-when-downgrade"
     ></iframe>
   </div>
-
+</div>
   {/* BOTÓN “CÓMO LLEGAR” */}
   <a
     href="https://www.google.com/maps/dir/?api=1&destination=19.64837339768598,-99.09001923748058"
