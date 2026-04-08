@@ -175,26 +175,38 @@ export default function Page() {
             </button>
           </a>
         </div>
+{/* UBICACIÓN DE GOOGLE MAPS */}
+<div
+  className="mt-16 text-center bg-white/5 border border-white/10 p-6 rounded-3xl"
+  id="ubicacion"
+>
+  <h2 className="text-xl font-bold mb-4">📍 Nuestra Ubicación</h2>
+  <p className="text-gray-400 mb-4">
+    Ven a visitarnos o recoge tu pedido en nuestra oficina.
+  </p>
 
-        {/* UBICACIÓN DE GOOGLE MAPS */}
-        <div className="mt-16 text-center bg-white/5 border border-white/10 p-6 rounded-3xl" id="ubicacion">
-          <h2 className="text-xl font-bold mb-4">📍 Nuestra Ubicación</h2>
-          <p className="text-gray-400 mb-4">
-            Ven a visitarnos o recoge tu pedido en nuestra oficina.
-          </p>
-          <div className="w-full aspect-video md:aspect-[16/9] rounded-3xl overflow-hidden border border-white/10">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.123456789!2d-99.000000!3d19.000000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1abcd12345678%3A0xabcdef1234567890!2sTu%20Negocio!5e0!3m2!1ses-419!2smx!4v1234567890"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-        </div>
+  <div className="w-full aspect-video md:aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 mb-4">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d7515.013549025804!2d-99.09001923748058!3d19.64837339768598!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1775616737153!5m2!1sen!2sus"
+      width="100%"
+      height="100%"
+      style={{ border: 0 }}
+      allowFullScreen
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
 
+  {/* BOTÓN “CÓMO LLEGAR” */}
+  <a
+    href="https://www.google.com/maps/dir/?api=1&destination=19.64837339768598,-99.09001923748058"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-block bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3 rounded-2xl transition-transform duration-200 hover:scale-105"
+  >
+    🚗 Cómo llegar
+  </a>
+</div>
         {/* TEXTO AMIGABLE ANTES DE REDES SOCIALES */}
         <div className="mt-12 text-center">
           <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
