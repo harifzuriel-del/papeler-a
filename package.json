@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@uploadthing/react": "^7.3.3",
+    "cloudinary": "^2.9.0",
     "express": "^5.2.1",
+    "formidable": "^3.5.4",
     "lucide-react": "^0.577.0",
     "multer": "^2.1.1",
     "next": "14.2.35",

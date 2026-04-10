@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { MessageCircle, Phone, FileText, Copy, Printer, Scissors, PenTool, Sticker, UploadCloud, Image, BookOpen, Facebook, Instagram, Twitter } from "lucide-react";
+import { 
+  MessageCircle, Phone, FileText, Copy, Printer, Scissors, PenTool, Sticker, UploadCloud, Image, BookOpen, 
+  Facebook, Instagram, Twitter 
+} from "lucide-react";
 import Uploader from "@/components/Uploader";
 
 export default function Page() {
@@ -11,7 +14,6 @@ export default function Page() {
     const fullMessage = uploadedFile
       ? `${message}\n📎 Archivo: ${uploadedFile}`
       : message;
-
     return `https://wa.me/5215641110978?text=${encodeURIComponent(fullMessage)}`;
   };
 
@@ -42,7 +44,7 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black text-white flex relative">
 
-      {/* LOGO SUPERIOR IZQUIERDA CON HOVER */}
+      {/* LOGO SUPERIOR IZQUIERDA */}
       <div className="fixed top-4 left-4 z-50">
         <h1 className="text-2xl md:text-3xl font-extrabold text-white tracking-wide cursor-pointer transform transition duration-300 hover:scale-110 hover:drop-shadow-[0_0_15px_rgba(255,0,0,0.8)]">
           paper<span className="text-red-600">🖤</span>maker
@@ -72,15 +74,9 @@ export default function Page() {
 
         {/* HERO */}
         <div className="text-center">
-          <h1 className="text-4xl md:text-6xl font-extrabold">
-            Imprime sin hacer fila 📄
-          </h1>
-          <p className="text-gray-400 mt-4 text-lg">
-            Mándanos tu archivo por WhatsApp y recógelo en minutos ⚡
-          </p>
-          <p className="text-green-400 text-sm mt-2">
-            ⚡ Respuesta en menos de 5 minutos
-          </p>
+          <h1 className="text-4xl md:text-6xl font-extrabold">Imprime sin hacer fila 📄</h1>
+          <p className="text-gray-400 mt-4 text-lg">Mándanos tu archivo por WhatsApp y recógelo en minutos ⚡</p>
+          <p className="text-green-400 text-sm mt-2">⚡ Respuesta en menos de 5 minutos</p>
 
           <div className="mt-8 flex flex-col md:flex-row gap-4 justify-center">
             <a href={whatsappLink("Hola, quiero imprimir. Aquí está mi archivo:")} target="_blank">
@@ -88,7 +84,6 @@ export default function Page() {
                 <MessageCircle /> Enviar por WhatsApp
               </button>
             </a>
-
             <a href="tel:+5215641110978">
               <button className="bg-white/10 hover:bg-white/20 px-8 py-4 rounded-2xl text-lg font-semibold flex items-center gap-2 transition-transform duration-200 hover:scale-105">
                 <Phone /> Llamar
@@ -99,9 +94,7 @@ export default function Page() {
 
         {/* ENCABEZADO MODELO */}
         <div className="mt-16 text-center bg-gradient-to-r from-green-500 via-green-400 to-green-500/70 p-12 rounded-3xl shadow-xl">
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">
-            📄 Tu papelería express, sin filas
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">📄 Tu papelería express, sin filas</h2>
           <p className="text-white/90 text-lg md:text-xl">
             Sube tu archivo, elige tu servicio y recógelo en minutos. Impresión, copias, laminado y más, todo en un solo lugar.
           </p>
@@ -114,7 +107,7 @@ export default function Page() {
           </div>
         </div>
 
-        {/* BLOQUE DE IMÁGENES */}
+        {/* TRABAJOS RECIENTES */}
         <div className="mt-16" id="trabajos">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">🖼️ Trabajos Recientes</h2>
           <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -129,9 +122,7 @@ export default function Page() {
         {/* SUBIDA DE ARCHIVOS */}
         <div className="mt-12 bg-white/5 border border-white/10 p-6 rounded-2xl text-center">
           <h2 className="text-xl font-bold mb-4">📤 Sube tu archivo</h2>
-          <p className="text-gray-400 mb-4">
-            Sube tu archivo aquí para imprimirlo sin enviar mensajes
-          </p>
+          <p className="text-gray-400 mb-4">Sube tu archivo aquí para imprimirlo sin enviar mensajes</p>
           <Uploader onUpload={setUploadedFile} />
         </div>
 
@@ -175,44 +166,38 @@ export default function Page() {
             </button>
           </a>
         </div>
-{/* UBICACIÓN DE GOOGLE MAPS */}
-<div className="mt-16 text-center bg-white/5 border border-white/10 p-6 rounded-3xl" id="ubicacion">
-  <h2 className="text-xl font-bold mb-4">📍 Nuestra Ubicación</h2>
-  <p className="text-gray-400 mb-4">
-    Ven a visitarnos o recoge tu pedido en nuestra oficina.
-  </p>
-  <div className="w-full aspect-video md:aspect-[16/9] rounded-3xl overflow-hidden border border-white/10">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d15030.027135298405!2d-99.09001900000001!3d19.648373!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1775618028003!5m2!1sen!2sus"
-      width="100%"
-      height="100%"
-      style={{ border: 0 }}
-      allowFullScreen
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-    ></iframe>
-  </div>
-</div>
-  {/* BOTÓN “CÓMO LLEGAR” */}
-  <a
-    href="https://www.google.com/maps/dir/?api=1&destination=19.64837339768598,-99.09001923748058"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="inline-block bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3 rounded-2xl transition-transform duration-200 hover:scale-105"
-  >
-    🚗 Cómo llegar
-  </a>
-</div>
-        {/* TEXTO AMIGABLE ANTES DE REDES SOCIALES */}
+
+        {/* UBICACIÓN */}
+        <div className="mt-16 text-center bg-white/5 border border-white/10 p-6 rounded-3xl" id="ubicacion">
+          <h2 className="text-xl font-bold mb-4">📍 Nuestra Ubicación</h2>
+          <p className="text-gray-400 mb-4">Ven a visitarnos o recoge tu pedido en nuestra oficina.</p>
+          <div className="w-full aspect-video md:aspect-[16/9] rounded-3xl overflow-hidden border border-white/10 mb-4">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d15030.027135298405!2d-99.09001900000001!3d19.648373!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1775618028003!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=19.64837339768598,-99.09001923748058"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-green-500 hover:bg-green-600 text-white font-bold px-6 py-3 rounded-2xl transition-transform duration-200 hover:scale-105"
+          >
+            🚗 Cómo llegar
+          </a>
+        </div>
+
+        {/* REDES SOCIALES */}
         <div className="mt-12 text-center">
           <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">
             En <span className="text-green-400 font-semibold">Paper🖤Maker</span> estamos para ti: imprimimos, copiamos y resolvemos tus necesidades de papelería rápido y sin complicaciones. 💌 Tu satisfacción es nuestra prioridad.
           </p>
-        </div>
-
-        {/* BOTONES DE REDES SOCIALES */}
-        <div className="mt-8 text-center">
-          <h2 className="text-xl font-bold mb-4">🔗 Síguenos en redes sociales</h2>
+          <h2 className="text-xl font-bold mb-4 mt-8">🔗 Síguenos en redes sociales</h2>
           <div className="flex justify-center gap-6 text-3xl">
             <a href="https://facebook.com/tu_pagina" target="_blank" className="text-blue-600 hover:text-blue-800 transition">
               <Facebook />
