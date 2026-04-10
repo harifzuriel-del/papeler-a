@@ -10,8 +10,8 @@ interface UploaderProps {
 export default function Uploader({ onUpload }: UploaderProps) {
   return (
     <div className="text-center">
-      <UploadButton<OurFileRouter, "imageUploader">
-        endpoint="imageUploader"
+      <UploadButton<OurFileRouter, "fileUploader">
+        endpoint="fileUploader"
         onClientUploadComplete={(res) => {
           const url = res?.[0]?.ufsUrl || res?.[0]?.url;
 
