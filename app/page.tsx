@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { 
   MessageCircle, Phone, FileText, Copy, Printer, Scissors, PenTool, Sticker, UploadCloud, Image, BookOpen, 
   Facebook, Instagram, Twitter 
@@ -9,6 +9,36 @@ import Uploader from "@/components/Uploader";
 
 export default function Page() {
   const [uploadedFile, setUploadedFile] = useState("");
+
+// 🔥 SLIDER
+const [currentImage, setCurrentImage] = useState(0);
+const [paused, setPaused] = useState(false);
+
+const sliderImages = [
+  "/images1.jpg",
+  "/images2.jpg",
+  "/images3.jpg",
+  "/images4.jpg",
+  "/images5.jpg",
+  "/images6.jpg",
+  "/images7.jpg",
+  "/images8.jpg",
+  "/images9.jpg",
+  "/images10.jpg",
+  "/images11.jpg",
+
+];
+
+useEffect(() => {
+  if (paused) return;
+
+  const interval = setInterval(() => {
+    setCurrentImage((prev) => (prev + 1) % sliderImages.length);
+  }, 3000);
+
+  return () => clearInterval(interval);
+}, [paused]);
+
 
   const whatsappLink = (message: string) => {
     const fullMessage = uploadedFile
@@ -77,6 +107,16 @@ export default function Page() {
           <h1 className="text-4xl md:text-6xl font-extrabold">Imprime sin hacer fila 📄</h1>
           <p className="text-gray-400 mt-4 text-lg">Mándanos tu archivo por WhatsApp y recógelo en minutos ⚡</p>
           <p className="text-green-400 text-sm mt-2">⚡ Respuesta en menos de 5 minutos</p>
+          <p className="text-blue-400 mt-2 font-semibold"></p>
+  
+<div className="mt-4 bg-green-500/10 border border-green-500/30 px-4 py-3 rounded-xl inline-block">
+  <p className="text-green-400 font-bold">
+    🚚 Envío a domicilio disponible
+  </p>
+  <p className="text-green-300 text-sm">
+    Entrega el mismo día ⚡
+  </p>
+</div>
 
           <div className="mt-8 flex flex-col md:flex-row gap-4 justify-center">
             <a href={whatsappLink("Hola, quiero imprimir. Aquí está mi archivo:")} target="_blank">
@@ -91,7 +131,76 @@ export default function Page() {
             </a>
           </div>
         </div>
+{/* 🔥 SLIDER AUTOMÁTICO */}
+{/* 🔥 SLIDER PRO */}
+<div
+  className="mt-12 flex justify-center"
+  onMouseEnter={() => setPaused(true)}
+  onMouseLeave={() => setPaused(false)}
+>
+  <div className="w-full max-w-4xl h-[300px] md:h-[420px] rounded-3xl overflow-hidden border border-white/10 relative group">
 
+    {/* IMÁGENES */}
+    {sliderImages.map((img, index) => (
+      <img
+        key={index}
+        src={img}
+        className={`absolute w-full h-full object-contain transition-opacity duration-1000 ${
+          index === currentImage ? "opacity-100" : "opacity-0"
+        }`}
+      />
+    ))}
+
+    {/* OVERLAY NEGRO */}
+    <div className="absolute inset-0 bg-black/30"></div>
+
+    {/* TEXTO PRO */}
+    <div className="absolute bottom-6 left-6 text-white">
+      <h2 className="text-2xl md:text-3xl font-bold">
+        ✨ Papelería completa en un solo lugar
+      </h2>
+      <p className="text-white/80">
+        Rápido • Barato • Sin filas
+      </p>
+    </div>
+
+    {/* BOTÓN IZQUIERDA */}
+    <button
+      onClick={() =>
+        setCurrentImage((prev) =>
+          prev === 0 ? sliderImages.length - 1 : prev - 1
+        )
+      }
+      className="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 p-3 rounded-full text-white"
+    >
+      ◀
+    </button>
+
+    {/* BOTÓN DERECHA */}
+    <button
+      onClick={() =>
+        setCurrentImage((prev) => (prev + 1) % sliderImages.length)
+      }
+      className="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/80 p-3 rounded-full text-white"
+    >
+      ▶
+    </button>
+
+    {/* PUNTITOS */}
+    <div className="absolute bottom-3 w-full flex justify-center gap-2">
+      {sliderImages.map((_, index) => (
+        <div
+          key={index}
+          onClick={() => setCurrentImage(index)}
+          className={`w-2.5 h-2.5 rounded-full cursor-pointer transition ${
+            index === currentImage ? "bg-green-400 scale-125" : "bg-white/50"
+          }`}
+        />
+      ))}
+    </div>
+
+  </div>
+  </div>
         {/* ENCABEZADO MODELO */}
         <div className="mt-16 text-center bg-gradient-to-r from-green-500 via-green-400 to-green-500/70 p-12 rounded-3xl shadow-xl">
           <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-4">📄 Tu papelería express, sin filas</h2>
@@ -213,5 +322,6 @@ export default function Page() {
 
       </div>
     </div>
+  
   );
 }
